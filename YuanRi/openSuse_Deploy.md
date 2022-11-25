@@ -2,6 +2,11 @@
 
 ### 安装luarocks
 
+### 解决安装OrdSys依赖项中xml包的错误
+gcc: error trying to exec 'cc1plus': execvp: 没有那个文件或目录
+```
+zypper in gcc-c++
+```
 
 ### 安装PostgreSQL
 ```
