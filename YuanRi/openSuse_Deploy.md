@@ -38,9 +38,36 @@ DEFAULT_SERVER = '0.0.0.0'
 
 service pgadmin4 restart
 
+### postgresql鉴权方式设置
+
+`vim /var/lib/pgsql/data/pg_hba.conf`
+
+```
+# Database administrative login by Unix domain socket
+local   all             postgres                                trust
+
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# "local" is for Unix domain socket connections only
+local   all             all                                     trust
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            md5
+# IPv6 local connections:
+host    all             all             ::1/128                 md5
+# Allow replication connections from localhost, by a user with the
+# replication privilege.
+local   replication     all                                     peer
+host    replication     all             127.0.0.1/32            md5
+host    replication     all             ::1/128                 md5
+```
+
+
 ### PostgreSQL初始密码设置
 
 But if you want to have su postgres work, you would just need to have a password set for the user postgres. That can be achieved by running `passwd postgres` as root.
+
+### 不设置postgres账号的密码直接访问psql
+`sudo -u postgres psql`
 
 ##
 ###
