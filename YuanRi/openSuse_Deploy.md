@@ -69,6 +69,19 @@ But if you want to have su postgres work, you would just need to have a password
 ### 不设置postgres账号的密码直接访问psql
 `sudo -u postgres psql`
 
+### 设置远程连接postgresql
+
+`vim /var/lib/pgsql/data/postgresql.conf`
+
+`listen_addresses=’*’`
+
+vim /var/lib/pgsql/data/pg_hba.conf
+
+`host    all             ordsys_admin    0.0.0.0/0               md5`
+
+https://www.postgresql.org/docs/current/auth-pg-hba-conf.html
+
+
 ##
 ###
 ####
