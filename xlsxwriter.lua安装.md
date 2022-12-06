@@ -39,6 +39,9 @@ cd zlib-1.2.12
 sudo make install
 
 
+#### ZipWriter/binary_converter.lua:7: module 'struct' not found
+
+luarocks install struct --lua-dir=/usr/local/openresty/luajit --tree=deps 
 
 
 
